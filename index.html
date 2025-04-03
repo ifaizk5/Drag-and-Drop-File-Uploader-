@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Image Uploader with Preview & Remove</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+
+    <body>
+        <div class="container">
+            <!-- Drag and Drop or Click to Upload Area -->
+            <div
+                id="drop-area"
+                class="dragger-area"
+                aria-label="Drag and drop an image or click to upload"
+            >
+                <input type="file" id="file-input" accept="image/*" hidden />
+                <div class="preview" role="button" aria-label="Upload an image">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="upload-icon"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5"
+                        />
+                    </svg>
+                    <p>Drag & Drop Files Here or Click to Upload</p>
+                </div>
+            </div>
+
+            <!-- Progress bar for file upload -->
+            <progress
+                id="progress-bar"
+                value="0"
+                max="100"
+                aria-label="Upload Progress"
+                hidden
+            ></progress>
+
+            <!-- Image preview container -->
+            <div id="image-preview" aria-live="polite"></div>
+        </div>
+
+        <!-- Full-Screen Image Modal -->
+        <div id="fullscreen-modal" class="modal" aria-hidden="true">
+            <span
+                class="close-btn"
+                role="button"
+                aria-label="Close Image Preview"
+                >&times;</span
+            >
+            <img id="fullscreen-image" alt="Fullscreen image preview" />
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
